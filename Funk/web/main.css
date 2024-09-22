@@ -1,0 +1,196 @@
+@font-face {
+    font-family: 'Gilroy-Bold';
+    src: url('fonts/GilroyBold.ttf') format('truetype'), url('fonts/GilroyBold.ttf');
+}
+
+@font-face {
+    font-family: 'Gilroy-Medium';
+    src: url('fonts/GilroyMedium.ttf') format('truetype'), url('fonts/GilroyMedium.ttf');
+}
+
+@font-face {
+    font-family: 'Gilroy-Regular';
+    src: url('fonts/GilroyRegular.ttf') format('truetype'), url('fonts/GilroyRegular.ttf');
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.funk-main {
+    box-sizing: border-box;
+    width: 33.3519vh;
+    position: absolute;
+    border-radius: 0.463vh;
+    height: 38.2963vh;
+    background-image: url('../web/img/bg.svg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.headerline {
+    position: absolute;
+    width: 10.2778vh;
+    height: 2.7778vh;
+    left: 2.5vh;
+    top: 2.7778vh;
+    font-family: 'Gilroy-Bold';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.5222vh;
+    line-height: 2.7778vh;
+    color: #FFFFFF;
+}
+
+.head {
+    position: absolute;
+    width: 6.6667vh;
+    height: 4.537vh;
+    left: 9.1111vh;
+    top: 3.2407vh;
+    font-family: 'Mr Dafoe';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.2407vh;
+    line-height: 4.537vh;
+    letter-spacing: 0.05em;
+    color: #2FCDFF;
+}
+
+.close {
+    position: absolute;
+    width: 2.7778vh;
+    height: 2.7778vh;
+    background-image: url("/img/close.svg");
+    left: 28.1667vh;
+    top: 2.7778vh;
+    cursor: pointer;
+}
+
+.items {
+    display: flex;
+    gap: 4.6296vh;
+    position: absolute;
+    top: 30.4074vh;
+    left: 3.5vh;
+}
+
+.conti {
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 5.5556vh;
+    height: 5.5556vh;
+    border: 0.0926vh solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+i {
+    color: white;
+    font-size: 2.3148vh;
+    display: block;
+    transition: color 0.3s;
+}
+
+i:hover {
+    color: #2FCDFF;
+}
+
+i.active {
+    color: #2FCDFF;
+}
+
+.border {
+    box-sizing: border-box;
+    position: absolute;
+    width: 18.5185vh;
+    top: 10.6481vh;
+    left: 7vh;
+    height: 3.5556vh;
+    border: 0.0926vh solid rgba(255, 255, 255, 0.1);
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.226);
+    text-align: center;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+}
+
+.frakbutton {
+    box-sizing: border-box;
+    position: absolute;
+    width: 8.4815vh;
+    color: white;
+    font-family: "Gilroy-Regular";
+    height: 2.7778vh;
+    left: 6.9vh;
+    cursor: pointer;
+    top: 14.7593vh;
+    background: radial-gradient(86.36% 653.13% at 50% 50%, rgba(47, 205, 255, 0.15) 0%, rgba(47, 205, 255, 0) 100%);
+    border: 0.0926vh solid rgba(47, 205, 255, 0.1);
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headni {
+    font-family: 'Gilroy-Bold';
+    font-style: normal;
+    font-weight: 400;
+    margin-left: 9vh;
+    margin-top: 25vh;
+    font-size: 2.2222vh;
+    line-height: 2.7778vh;
+    color: #FFFFFF;
+}
+
+.button {
+    box-sizing: border-box;
+    position: absolute;
+    width: 8.4815vh;
+    color: white;
+    font-family: "Gilroy-Regular";
+    height: 2.7778vh;
+    left: 17.1vh;
+    cursor: pointer;
+    top: 14.7593vh;
+    background: radial-gradient(86.36% 653.13% at 50% 50%, rgba(9, 221, 122, 0.15) 0%, rgba(9, 221, 122, 0) 100%);
+    border: 0.0926vh solid rgba(9, 221, 122, 0.1);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+border:focus {
+    border-color: rgba(255, 255, 255, 0.1);
+    outline: none;
+}
