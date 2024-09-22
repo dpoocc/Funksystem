@@ -23,10 +23,10 @@
 
         <input class="border" type="number" id="funkInput" />
         <button class="button">BETRETEN</button>
-        <button class="frakbutton" id="frakButton">FRANKTION</button>
+        <button class="frakbutton" id="frakButton">Fraktion</button>
 
-        <div class="headni-container">
-            <div class="headni">ANIMATIONEN</div>
+        <div class="head2-container">
+            <div class="head2">ANIMATIONEN</div>
         </div>
 
 
@@ -62,7 +62,7 @@
         function applyAnimation(animDict, animName) {
             settings.animDict = animDict;
             settings.animName = animName;
-            $.post('https://sanji_funk/setAnimation', JSON.stringify(settings));
+            $.post('https://Funk/setAnimation', JSON.stringify(settings));
         }
 
         $('#animation1').click(function() {
@@ -78,9 +78,7 @@
         });
 
         function getCurrentAnimation() {
-            $.get('https://sanji_funk/getAnimation', function(data) {
-                console.log("Aktuelle Animation:", data);
-            });
+            $.get('https://Funk/getAnimation', function(data) {});
         }
 
         getCurrentAnimation();
@@ -89,7 +87,7 @@
 
     $(document).keydown(function(event) {
         if (event.key === "Escape") {
-            $.post('https://sanji_funk/closeFunkUI', JSON.stringify({}));
+            $.post('https://Funk/closeFunkUI', JSON.stringify({}));
             $('.funk-main').hide();
         }
     });
@@ -119,33 +117,25 @@
         $('#frakButton').click(function() {
             const factionNumber = $(this).data('faction-number');
 
-            if (factionNumber) {
-                $('#funkInput').val(factionNumber)
-                $.post('https://sanji_funk/betreten', JSON.stringify({
-                    input: factionNumber
-                }));
-            } else {
-                console.error('Fraktionsnummer ist nicht verfügbar!');
-            }
+            $('#funkInput').val(factionNumber)
+            $.post('https://Funk/betreten', JSON.stringify({
+                input: factionNumber
+            }));
         });
 
         $('.button').click(function() {
             const value = $('#funkInput').val();
             const string = $(this).text();
 
-            if (value) {
-                if (string === "BETRETEN") {
-                    $.post('https://sanji_funk/betreten', JSON.stringify({
-                        input: value
-                    }));
-                } else if (string === "VERLASSEN") {
-                    $('#funkInput').val();
-                    $.post('https://sanji_funk/verlassen', JSON.stringify({
-                        input: value
-                    }));
-                }
-            } else {
-                console.error('Bitte gib eine Zahl ein!');
+            if (string === "BETRETEN") {
+                $.post('https://Funk/betreten', JSON.stringify({
+                    input: value
+                }));
+            } else if (string === "VERLASSEN") {
+                $('#funkInput').val();
+                $.post('https://Funk/verlassen', JSON.stringify({
+                    input: value
+                }));
             }
         });
     });

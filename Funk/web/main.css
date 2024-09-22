@@ -78,7 +78,7 @@ body {
     position: absolute;
     width: 2.7778vh;
     height: 2.7778vh;
-    background-image: url("/img/close.svg");
+    background-image: url("../web/img/close.svg");
     left: 28.1667vh;
     top: 2.7778vh;
     cursor: pointer;
@@ -159,7 +159,7 @@ i.active {
     align-items: center;
 }
 
-.headni {
+.head2 {
     font-family: 'Gilroy-Bold';
     font-style: normal;
     font-weight: 400;
