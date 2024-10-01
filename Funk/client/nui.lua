@@ -4,10 +4,6 @@ self:RegisterKeyMapping('F1', 'FUNKSYSTEM', 'funk', function() end)
 RegisterNUICallback('betreten', function(data, cb)
     local channel = tonumber(data.input)
     
-    if Player.faction[Player.Job.name] == nil and channel ~= nil then
-        return print(1)
-    end
-
     if channel then
         exports['pma-voice']:setRadioChannel(channel)
         

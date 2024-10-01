@@ -88,7 +88,7 @@
     $(document).keydown(function(event) {
         if (event.key === "Escape") {
             $.post('https://Funk/closeFunkUI', JSON.stringify({}));
-            $('.funk-main').hide();
+            $('.close').hide();
         }
     });
 
@@ -121,6 +121,11 @@
             $.post('https://Funk/betreten', JSON.stringify({
                 input: factionNumber
             }));
+        });
+
+        $('.close').click(function() {
+            $('.close').hide(50);
+            $.post('https://Funk/closeFunkUI', JSON.stringify({}));
         });
 
         $('.button').click(function() {
