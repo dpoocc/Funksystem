@@ -88,7 +88,7 @@
     $(document).keydown(function(event) {
         if (event.key === "Escape") {
             $.post('https://Funk/closeFunkUI', JSON.stringify({}));
-            $('.close').hide();
+            $('.funk-main').hide();
         }
     });
 
@@ -124,7 +124,7 @@
         });
 
         $('.close').click(function() {
-            $('.close').hide(50);
+            $('.funk-main').hide();
             $.post('https://Funk/closeFunkUI', JSON.stringify({}));
         });
 
