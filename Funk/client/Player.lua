@@ -1,51 +1,51 @@
 self = {}
 Player = {
-  Ped = PlayerPedId(),
-  Radio = nil,
-  Coords = vec3(0.0, 0.0, 0.0),
-  Job = ESX.GetPlayerData().job,
-  IsInRadio = false,
-  Settings = {};
-  
-  faction = {
-    ["vagos"] = 1,
-    ["triaden"] = 4,
-  }
+    Ped = PlayerPedId(),
+    Radio = nil,
+    Coords = vec3(0.0, 0.0, 0.0),
+    Job = ESX.GetPlayerData().job or {
+        name = "unemployed",
+        label = "Unemployed"
+    },
+    IsInRadio = false,
+    Settings = {},
+
+    faction = {
+        ["vagos"] = 1,
+        ["triaden"] = 4,
+    }
 }
 
 function self:print(...)
-  local args = { ... }
+    local args = { ... }
     for _, v in next, args do
-      print("^2[DEBUG] ^7" .. v)
+        print("^2[DEBUG] ^7" .. v)
     end
 end
 
 function self:RegisterCommand(name, callback)
-  RegisterCommand(name, function(source, args, rawCommand)
-      callback(source, args, rawCommand)
-  end, false)
+    RegisterCommand(name, function(source, args, rawCommand)
+        callback(source, args, rawCommand)
+    end, false)
 end
 
-
 function self:RegisterNuiCallback(callbackName, callbackFunction)
-  RegisterNUICallback(callbackName, callbackFunction)
+    RegisterNUICallback(callbackName, callbackFunction)
 end
 
 function self:RegisterKeyMapping(key, description, commandName, callback)
-  RegisterKeyMapping(commandName, description, 'keyboard', key)
+    RegisterKeyMapping(commandName, description, 'keyboard', key)
 end
 
 function Player:OpenFunk()
+    SendNUIMessage({
+        action = "open:funk",
+        faction = Player.Job.label,
+        factionNumber = Player.faction[Player.Job.name] or 0
+    })
 
-  SendNUIMessage({
-      action = "open:funk",
-      faction = Player.Job.label,
-      factionNumber = Player.faction[Player.Job.name] or 0
-  })
-
-  SetNuiFocus(true, true)
+    SetNuiFocus(true, true)
 end
-
 
 function Player:Animation(animDict, animName)
     Player.Settings.animdict = animDict
@@ -68,4 +68,18 @@ exports('IsFunkAnimTask', function()
         animdict = Player.Settings.animdict,
         anim = Player.Settings.anim
     }
+end)
+
+RegisterNetEvent('esx:setJob', function(job)
+    Player.Job = job
+end)
+
+CreateThread(function()
+    repeat
+        Wait(0)
+    until ESX.IsPlayerLoaded()
+
+    Wait(1000)
+
+    Player.Job = ESX.GetPlayerData().job
 end)
